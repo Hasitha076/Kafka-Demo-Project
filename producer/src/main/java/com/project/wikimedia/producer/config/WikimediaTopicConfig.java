@@ -11,7 +11,7 @@ public class WikimediaTopicConfig {
     @Bean
     public NewTopic wikimediaStreamTopic() {
         return TopicBuilder
-                .name("event-topic")
+                .name("quickstart-events")
                 .build();
     }
 }

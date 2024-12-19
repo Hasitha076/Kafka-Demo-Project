@@ -1,5 +1,6 @@
 package com.project.wikimedia.producer.producer;
 
+import com.project.wikimedia.producer.model.Wikimedia;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -10,10 +11,10 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class WikimediaProducer {
 
-    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<Wikimedia, Wikimedia> kafkaTemplate;
 
-    public void sendMessage(String message) {
+    public void sendMessage(Wikimedia message) {
         log.info(String.format("#### -> Producing message -> %s", message));
-        kafkaTemplate.send("event-topic", message);
+        kafkaTemplate.send("quickstart-events", message);
     }
 }

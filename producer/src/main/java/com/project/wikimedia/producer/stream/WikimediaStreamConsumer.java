@@ -1,5 +1,6 @@
 package com.project.wikimedia.producer.stream;
 
+import com.project.wikimedia.producer.model.Wikimedia;
 import com.project.wikimedia.producer.producer.WikimediaProducer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,7 +25,7 @@ public class WikimediaStreamConsumer {
         webClient.get()
                 .uri("/stream/recentchange")
                 .retrieve()
-                .bodyToFlux(String.class)
+                .bodyToFlux(Wikimedia.class)
                 .subscribe(wikimediaProducer::sendMessage);
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class WikimediaConsumer {
 
-    @KafkaListener(topics = "event-topic", groupId = "group_id")
+    @KafkaListener(topics = "quickstart-events", groupId = "group_id")
     public void consume(String message) {
         log.info(String.format("#### -> Consumed message -> %s", message));
     }
